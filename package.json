@@ -1,0 +1,17 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karen Marting",
+  "license": "MIT",
+  "devDependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.1"
+  }
+}
