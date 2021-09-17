@@ -2,16 +2,21 @@
   "name": "functions",
   "version": "1.0.0",
   "description": "",
-  "main": "hello-world.js",
+  "main": "bandsInTown.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "netlify dev"  
+},
   "author": "Karen Marting",
   "license": "MIT",
   "devDependencies": {
     "node-fetch": "^2.6.1"
   },
   "dependencies": {
+    "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz",
+    "integrity": "sha512-aLoxToI6RfZ+0NOjmWAgn9+LEd30YCkJKFSyWacNZdEKTit/ZMcKjGkTRo8uWEsnIb/hfKecNPEbln02PdWbcA==",
     "bootstrap": "^5.1.1"
   }
 }
+
+

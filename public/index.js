@@ -1,5 +1,25 @@
 
 
+      document.addEventListener('DOMContentLoaded', () => {
+
+        const fetchBtn = document.getElementById('fetch-btn')
+        const responseText = document.getElementById('response-output')
+        const artistName = document.getElementById('artistName')
+        const venueName = document.getElementById('venueName')
+    
+        fetchBtn.addEventListener('click', async() => {
+          const response = await fetch('/.netlify/functions/bandsInTown')
+          .then(response => response.json())
+          responseText.innerText = JSON.stringify(response)
+        })
+        fetchBtn.click(function(event){
+          event.preventDefault()
+          exports.handler()
+        })
+      })
+      
+      
+
 var myIndex = 0;
 carousel();
 
