@@ -5,18 +5,25 @@
   "main": "bandsInTown.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "netlify dev"  
-},
+    "dev": "netlify dev",
+    "build": "netlify-lambda build express",
+    "start": "nodemon server-local.js"
+  },
   "author": "Karen Marting",
   "license": "MIT",
   "devDependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "netlify-cli": "^6.9.0"
   },
   "dependencies": {
-    "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz",
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
     "integrity": "sha512-aLoxToI6RfZ+0NOjmWAgn9+LEd30YCkJKFSyWacNZdEKTit/ZMcKjGkTRo8uWEsnIb/hfKecNPEbln02PdWbcA==",
-    "bootstrap": "^5.1.1"
+    "mongoose": "^6.0.6",
+    "morgan": "^1.10.0",
+    "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz",
+    "serverless-http": "^2.7.0"
   }
 }
-
-
