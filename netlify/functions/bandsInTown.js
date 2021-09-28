@@ -1,27 +1,32 @@
+
+
+
 const fetch = require("node-fetch")
-const bandsInTownApi = "https://rest.bandsintown.com/artists/coldplay/?api_id=a3cf4c822335efb2d9c716c941c4a393"
+const bandsInTown = "https://rest.bandsintown.com/artists/coldplay/?api_id=a3cf4c822335efb2d9c716c941c4a393"
 
-function getConcerts(max) {
-        return Math.floor(math.random() * max);
-    }
-    exports.handler = async function () {
-        try{
-            const data = await fetch(bandsInTownApi)
-            .then(response => response.json())
-            const concertInfo = getConcerts(data.length -1)
-            const concertData = data[concertInfo]
-            console.log(concertData)
-            return {
-                statusCode: 200,
-                body: JSON.stringify(concertData)
-            }
-        }
-        catch(err){
-            console.log('----------', err)
-        }
-        getConcerts()
-    }
+// function getConcerts() {
+const concertSearch = document.querySelector('#artistName').value
 
+exports.handler = async function () {
+    try {
+        const data = await fetch(bandsInTown)
+            // .then(function (response) {
+            //     return response.json();
+            // })
+            .then(function (data) {
+                console.log(data)
+                return {
+                    statusCode: 200,
+                    body: JSON.stringify(data)
+                }
+            })
+    }
+    catch (err) {
+        console.log('----------', err)
+    }
+}
+
+// }
 
 
 
@@ -59,7 +64,7 @@ function getConcerts(max) {
 //         const results = data.artist.event.map(({venue}) => {
 //             return {venue: venue.artists.split(' ').join('')}
 //         })
-        
+
 //     }
 
 // exports.handler = async function () {
