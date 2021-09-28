@@ -2,29 +2,39 @@
 
 
 const fetch = require("node-fetch")
-const bandsInTown = "https://rest.bandsintown.com/artists/coldplay/?api_id=a3cf4c822335efb2d9c716c941c4a393"
 
-// function getConcerts() {
-const concertSearch = document.querySelector('#artistName').value
 
-exports.handler = async function () {
+exports.handler = async function (event) {
     try {
+        console.log("here")
+        const artistName = event.queryStringParameters.artist 
+        const bandsInTown = `https://rest.bandsintown.com/artists/${artistName}/events/?app_id=a3cf4c822335efb2d9c716c941c4a393`
         const data = await fetch(bandsInTown)
+        const response = await data.json()
             // .then(function (response) {
             //     return response.json();
             // })
-            .then(function (data) {
-                console.log(data)
-                return {
-                    statusCode: 200,
-                    body: JSON.stringify(data)
-                }
-            })
+
+            // const data = await response.json (concertApi)
+    return {
+        statusCode: 200,
+        body:JSON.stringify(response)
+    }
+            // .then(function (data) {
+            //     console.log(data)
+            //     return {
+            //         statusCode: 200,
+            //         body: JSON.stringify(data)
+            //     }
+            // })
     }
     catch (err) {
         console.log('----------', err)
     }
 }
+
+
+
 
 // }
 

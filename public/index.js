@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchBtn = document.getElementById('fetch-btn')
     const responseText = document.getElementById('response-output')
-    const artistName = document.getElementById('artistName')
+    
     // const venueName = document.getElementById('venueName')
 
     fetchBtn.addEventListener('click', async () => {
-        const response = await fetch('../.netlify/functions/bandsInTown')
+        const artistName = document.getElementById('artistName')
+        console.log(artistName.value)
+        const response = await fetch(`../.netlify/functions/bandsInTown?artist=${artistName.value}`)
             .then(response => response.json()).
             catch(err => console.error('error in fetch: ', err))
         console.log('response is: ', response)
