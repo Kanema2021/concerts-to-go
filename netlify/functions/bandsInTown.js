@@ -1,8 +1,9 @@
 
-
-
 const fetch = require("node-fetch")
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 exports.handler = async function (event) {
     try {
@@ -11,22 +12,17 @@ exports.handler = async function (event) {
         const bandsInTown = `https://rest.bandsintown.com/artists/${artistName}/events/?app_id=a3cf4c822335efb2d9c716c941c4a393`
         const data = await fetch(bandsInTown)
         const response = await data.json()
-            // .then(function (response) {
-            //     return response.json();
-            // })
-
-            // const data = await response.json (concertApi)
+            
     return {
         statusCode: 200,
         body:JSON.stringify(response)
     }
-            // .then(function (data) {
-            //     console.log(data)
-            //     return {
-            //         statusCode: 200,
-            //         body: JSON.stringify(data)
-            //     }
-            // })
+            // const events = document.getElementById('event')
+            // const artist = document.createElementById("h2")
+            // artist.textContent = event.
+            // events.appendChild(artistOneame)
+            
+           
     }
     catch (err) {
         console.log('----------', err)
@@ -35,53 +31,35 @@ exports.handler = async function (event) {
 
 
 
-
-// }
-
-
-
-
-// const axios = require("axios")
-// const key = 'a3cf4c822335efb2d9c716c941c4a393'
-
-// // const getEvents = ({ artists, venue }) => `https://rest.bandsintown.com/artists/?=${artists}&venue=${venue}/?api_id=` + key
-
-// function getRandomInt(max) {
-//     return Math.floor(math.random() * max)
-// }
-// exports.handler = async (event) => {
-//     const getEvents = (artists, venue) => `https://rest.bandsintown.com/artists/coldplay/?api_id=a3cf4c822335efb2d9c716c941c4a393`
-//     const data = await axios.fetch(getEvents).then(function(response) {
-//        console.log(response)
+// async function getevents() {
+//     const events = await handler()
+//     let html = '';
+//     events.foreach(event => {
+//         const artistName = (response.artist.name)
+//         console.log (response.artist.name)
 //     })
-
-
 // }
 
 
 
-
-
-
-
-    // const getEvents = ({ artists, venue }) => `https://rest.bandsintown.com/artists/?=${artists}&venue=${venue}/?api_id=` + key
-//     const {data} = await axios.get(getEvents).then(function (response) {
-//         console.log(response.data)
-//     })
-//         .catch(function (error) {
-//             console.error(error)
-//         })
-//         const results = data.artist.event.map(({venue}) => {
-//             return {venue: venue.artists.split(' ').join('')}
-//         })
-
-//     }
-
-// exports.handler = async function () {
-//      const concertApi = 'https://rest.bandsintown.com/artists/{{artist_name}}' + key 
-//     const data = await response.json (concertApi)
-//     return {
-//         statusCode: 200,
-//         body:JSON.stringify(data)
-//     }
+//         let htmlSegment = `<div class="event">
+//         <img src="${event.response.venue}" >
+//         <h1>${ response.artist}
+//   
+//     </div>`
+//     )
 // }
+
+// .then(function (response) {
+            //     return response.json();
+            // })
+
+            // const data = await response.json (concertApi)
+
+            // .then(function (data) {
+            //     console.log(data)
+            //     return {
+            //         statusCode: 200,
+            //         body: JSON.stringify(data)
+            //     }
+            // })
