@@ -12,15 +12,23 @@ exports.handler = async function (event) {
         const bandsInTown = `https://rest.bandsintown.com/artists/${artistName}/events/?app_id=a3cf4c822335efb2d9c716c941c4a393`
         const data = await fetch(bandsInTown)
         const response = await data.json()
-            
+        console.log(response)
+        const ourResponse = response.map(e => ({
+            image: e.artist?.thumb_url,
+            location: e.venue.location,
+            date:e.datetime.substring(0, 10),
+            bandName: e.lineup[0]
+
+        }))
+            console.log(ourResponse)
     return {
         statusCode: 200,
-        body:JSON.stringify(response)
+        body:JSON.stringify(ourResponse)
     }
             // const events = document.getElementById('event')
             // const artist = document.createElementById("h2")
             // artist.textContent = event.
-            // events.appendChild(artistOneame)
+            
             
            
     }
@@ -42,24 +50,3 @@ exports.handler = async function (event) {
 
 
 
-//         let htmlSegment = `<div class="event">
-//         <img src="${event.response.venue}" >
-//         <h1>${ response.artist}
-//   
-//     </div>`
-//     )
-// }
-
-// .then(function (response) {
-            //     return response.json();
-            // })
-
-            // const data = await response.json (concertApi)
-
-            // .then(function (data) {
-            //     console.log(data)
-            //     return {
-            //         statusCode: 200,
-            //         body: JSON.stringify(data)
-            //     }
-            // })

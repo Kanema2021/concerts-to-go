@@ -14,8 +14,37 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json()).
             catch(err => console.error('error in fetch: ', err))
         console.log('response is: ', response)
-        responseText.innerText = JSON.stringify(response)
+        // responseText.innerText = JSON.stringify(response)
+        const image = response[0].image
+        const eventCards = response.map(e => createEventCard(image, e))
+        eventCards.forEach(e => responseText.appendChild(e))
     })
+
+function createEventCard(image, event) {
+    const eventCard = document.createElement("div")
+    const eventCardArtist = document.createElement("h2")
+    eventCardArtist.textContent = event.bandName
+    eventCard.appendChild(eventCardArtist)
+    const eventCardImg = document.createElement("img")
+    eventCardImg.src = image
+    eventCard.appendChild(eventCardImg)
+    const eventCardVenue = document.createElement("div")
+    eventCardVenue.textContent = event.location
+    eventCard.appendChild(eventCardVenue)
+    const eventCardDate = document.createElement("h5")
+    eventCardDate.textContent = event.date
+    eventCard.appendChild(eventCardDate)
+
+
+
+    return eventCard
+}
+
+
+
+
+
+
     // fetchBtn.click(function(event){
     //   event.preventDefault()
     //   exports.handler()
