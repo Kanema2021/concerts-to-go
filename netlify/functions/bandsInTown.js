@@ -17,7 +17,8 @@ exports.handler = async function (event) {
             image: e.artist?.thumb_url,
             location: e.venue.location,
             date:e.datetime.substring(0, 10),
-            bandName: e.lineup[0]
+            bandName: e.lineup[0],
+            description: e.description
 
         }))
             console.log(ourResponse)

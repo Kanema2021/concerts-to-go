@@ -1,10 +1,8 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const fetchBtn = document.getElementById('fetch-btn')
     const responseText = document.getElementById('response-output')
-    
+
     // const venueName = document.getElementById('venueName')
 
     fetchBtn.addEventListener('click', async () => {
@@ -20,35 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
         eventCards.forEach(e => responseText.appendChild(e))
     })
 
-function createEventCard(image, event) {
-    const eventCard = document.createElement("div")
-    const eventCardArtist = document.createElement("h2")
-    eventCardArtist.textContent = event.bandName
-    eventCard.appendChild(eventCardArtist)
-    const eventCardImg = document.createElement("img")
-    eventCardImg.src = image
-    eventCard.appendChild(eventCardImg)
-    const eventCardVenue = document.createElement("div")
-    eventCardVenue.textContent = event.location
-    eventCard.appendChild(eventCardVenue)
-    const eventCardDate = document.createElement("h5")
-    eventCardDate.textContent = event.date
-    eventCard.appendChild(eventCardDate)
-
-
-
-    return eventCard
-}
-
-
-
-
-
-
-    // fetchBtn.click(function(event){
-    //   event.preventDefault()
-    //   exports.handler()
-    // })
+    function createEventCard(image, event) {
+        const eventCard = document.createElement("div");
+        const eventCardArtist = document.createElement("h1");
+        eventCardArtist.textContent = event.bandName;
+        eventCard.appendChild(eventCardArtist);
+        const eventCardImg = document.createElement("img");
+        eventCardImg.src = image;
+        eventCard.appendChild(eventCardImg);
+        const eventCardVenue = document.createElement("h4");
+        eventCardVenue.textContent = event.location;
+        eventCard.appendChild(eventCardVenue);
+        const eventCardDate = document.createElement("h5");
+        eventCardDate.textContent = event.date;
+        eventCard.appendChild(eventCardDate);
+        const eventCardDescription = document.createElement("div");
+        eventCardDescription.textContent = event.description;
+        eventCard.appendChild(eventCardDescription);
+    
+        return eventCard
+    }
 })
 
 
@@ -78,36 +67,4 @@ function myFunction() {
     }
 }
 
-
-
-// async function signUpForm(event) {
-//     event.preventDefault();
-//     const username = document.getElementById('username').value.trim();
-//     const password = document.getElementById('password').value.trim();
-
-//     if (username && password) {
-//         const response = await fetch('/api/users', {
-//             method: 'POST',
-//             body: JSON.stringify(body),
-//             headers: { 'Content-Type': 'application/json' }
-//         });
-//         if (response.ok) {
-//             //TODO: Take user to dashboard page
-//             console.log('success');
-//         } else {
-//             alert(response.statusText);
-//         }
-//     }
-// }
-
-// const registerBtn = document.getElementById('register-btn');
-// registerBtn.addEventListener('click', signUpForm());
-
-// function viewConcerts() {
-//     document.getElementById('concertSearchResults').setAttribute('style', 'display: block');
-//   }
-//   document.getElementById('closeBtn').addEventListener('click', function(event) {
-//     event.preventDefault();
-//     this.parentNode.style.display = 'none';
-//   }, false);
 
