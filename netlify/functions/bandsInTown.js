@@ -1,9 +1,9 @@
 
 const fetch = require("node-fetch")
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
+// function getRandomInt(max) {
+//     return Math.floor(Math.random() * max);
+//   }
 
 exports.handler = async function (event) {
     try {
